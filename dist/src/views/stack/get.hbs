@@ -1,0 +1,13 @@
+{{> header}}
+
+{{#if item}}
+    <p>The item is <b>{{item}}</b></p>
+{{/if}}
+
+{{#if numberOfItems}}
+    <p><a href="/stack/get">Get the next item</a></p>
+{{else}}
+    <p>The stack is empty</p>
+{{/if}}
+
+{{> footer}}
