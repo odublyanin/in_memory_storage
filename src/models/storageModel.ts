@@ -6,16 +6,16 @@ export class Storage {
     }
 
     public addToStorage(key: string, value: string, ttl = 0): void {
-        const date: number = ttl == 0 ? 0 : +new Date() + (ttl * 1000);
-        this.storage[key] = { value, date };
+        const date: number = ttl === 0 ? 0 : +new Date() + (ttl * 1000);
+        this.storage[ key ] = { value, date };
     }
 
     public getFromStorage(key: string): String {
-        return this.checkKeyInStorage(key) ? this.storage[key].value : null;
+        return this.checkKeyInStorage(key) ? this.storage[ key ].value : null;
     }
 
     public removeFromStorage(key: string): void {
-        delete this.storage[key];
+        delete this.storage[ key ];
     }
 
     public checkKeyInStorage(key: string): Boolean {
@@ -30,8 +30,8 @@ export class Storage {
 
     public validStorage(): void {
         for (const key in this.storage) {
-            const date = this.storage[key].date;
-            if (date != 0 && date < +new Date() ) {
+            const date = this.storage[ key ].date;
+            if (date !== 0 && date < +new Date()) {
                 this.removeFromStorage(key);
             }
         }

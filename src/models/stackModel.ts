@@ -5,19 +5,21 @@ export class Stack {
         this.stack = [];
     }
 
-    public addItemToStack(item: String): void {
-        this.stack.push(item);
+    public addValueToStack(value: String): void {
+        this.stack.push(value);
     }
 
-    public getItemFromStack(): String {
+    public getValueFromStack(): String {
         return this.stack.pop();
     }
 
-    public numberOfItems(): Number {
+    public numberOfValues(): Number {
         return this.stack.length;
     }
 
     public emptyStack(): void {
-        this.stack = [];
+        for (const index in this.stack) {
+            delete this.stack[ index ];
+        }
     }
 }
